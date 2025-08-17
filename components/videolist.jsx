@@ -29,44 +29,24 @@ export const VideoList = () => {
   useEffect(() => {
     fetchVideos();
   }, []);
-    const confirmDelete = (id) => {
+
+  const confirmDelete = (id) => {
     setVideoToDelete(id);
     setShowConfirm(true);
   };
 
-
-   // Delete video
-const handleDelete = async () => {
-  try {
-    await VideoAPI.delete(videoToDelete); // Ensure this is correct
-    setData(prevData => prevData.filter(video => video.id !== videoToDelete));
-    setShowConfirm(false);
-    setVideoToDelete(null);
-  } catch (error) {
-    console.error("Error deleting video:", error);
-    setError("Failed to delete video. Please try again.");
-  }
-};
-
-// Pagination
-<div className="flex justify-center gap-8 mt-4">
-  <button
-    onClick={() => fetchVideos(previous)}
-    disabled={!previous}
-    className={`px-4 py-2 rounded ${previous ? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
-  >
-    <i className="bi bi-arrow-left"></i>
-  </button>
-  <button
-    onClick={() => fetchVideos(next)}
-    disabled={!next}
-    className={`px-4 py-2 rounded ${next ? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
-  >
-    <i className="bi bi-arrow-right"></i>
-  </button>
-</div>
-
-
+  // Delete video
+  const handleDelete = async () => {
+    try {
+      await VideoAPI.delete(videoToDelete); // Ensure this is correct
+      setData(prevData => prevData.filter(video => video.id !== videoToDelete));
+      setShowConfirm(false);
+      setVideoToDelete(null);
+    } catch (error) {
+      console.error("Error deleting video:", error);
+      setError("Failed to delete video. Please try again.");
+    }
+  };
 
   return (
     <>
@@ -103,7 +83,6 @@ const handleDelete = async () => {
           </motion.div>
         </div>
       )}
-
 
     <motion.div
       initial={{ opacity: 0 }}
@@ -143,7 +122,7 @@ const handleDelete = async () => {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{event.title}</td>
                 <td className="px-6 py-4 whitespace-nowrap w-40 h-40">
                 <video controls>
-                <source src={event.video_url} type="video/mp4" />
+                  <source src={event.video_url} type="video/mp4" />
                 </video>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{event.description}</td>
@@ -166,20 +145,17 @@ const handleDelete = async () => {
             disabled={!previous}
             className={`px-4 py-2 rounded ${previous ? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
           >
-            <i class="bi bi-arrow-left"></i>
+            <i className="bi bi-arrow-left"></i>
           </button>
           <button
             onClick={() => fetchVideos(next)}
             disabled={!next}
             className={`px-4 py-2 rounded ${next ? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
           >
-            <i class="bi bi-arrow-right"></i>
+            <i className="bi bi-arrow-right"></i>
           </button>
         </div>
     </motion.div>
-
-
-    
     </>
   );
 }

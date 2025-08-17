@@ -58,6 +58,7 @@ export const Login = ({ onLogin }) => {
       setError(
         error.response?.data?.email?.[0] || error.response?.data?.password?.[0] ||
         error.response?.data?.non_field_errors?.[0] ||
+        error.response?.data?.detail ||
         "An unexpected error occurred. Please try again."
       );
       setTimeout(() => setError(""), 3000);

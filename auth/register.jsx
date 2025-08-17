@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 export const Register = ({ onRegister }) => {
   const navigate = useNavigate();
-  const [credentials, setcredentials] = useState({
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
     confirm_password: "",
@@ -31,7 +31,7 @@ export const Register = ({ onRegister }) => {
   }
 
   const handleChange = (e) => {
-    setcredentials((prevData) => ({
+    setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
     }));
@@ -43,7 +43,7 @@ export const Register = ({ onRegister }) => {
     setError("");
     setLoading(true);
     try {
-      const response = await AuthAPI.register(credentials);
+      const response = await AuthAPI.register(formData);
       localStorage.setItem("access_token", response.data.access);
       localStorage.setItem("refresh_token", response.data.refresh);
       localStorage.setItem(
@@ -97,7 +97,7 @@ export const Register = ({ onRegister }) => {
                   type="email"
                   name="email"
                   id="email"
-                  value={credentials.email}
+                  value={formData.email}
                   onChange={handleChange}
                   required
                   autoComplete="email"
@@ -118,7 +118,7 @@ export const Register = ({ onRegister }) => {
                   type="password"
                   name="password"
                   id="password"
-                  value={credentials.password}
+                  value={formData.password}
                   onChange={handleChange}
                   required
                   autoComplete="new-password"
@@ -139,7 +139,7 @@ export const Register = ({ onRegister }) => {
                   type="password"
                   name="confirm_password"
                   id="confirm_password"
-                  value={credentials.confirm_password}
+                  value={formData.confirm_password}
                   onChange={handleChange}
                   required
                   autoComplete="new-password"

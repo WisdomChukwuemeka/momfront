@@ -100,7 +100,6 @@ export const Register = ({ onRegister }) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  autoComplete="email"
                   className="mt-1 block w-full px-4 py-3 md:py-4 md:text-2xl border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   placeholder="you@example.com"
                 />
@@ -121,7 +120,6 @@ export const Register = ({ onRegister }) => {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  autoComplete="new-password"
                   className="mt-1 block w-full px-4 py-3 md:py-4 md:text-2xl border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   placeholder="••••••••"
                 />
@@ -142,7 +140,6 @@ export const Register = ({ onRegister }) => {
                   value={formData.confirm_password}
                   onChange={handleChange}
                   required
-                  autoComplete="new-password"
                   className="mt-1 block w-full px-4 py-3 md:py-4 md:text-2xl border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   placeholder="••••••••"
                 />

@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+
+
+
+/* Base container styling like Tailwind's container mx-auto */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (min-width: 640px) { /* sm */
+  .container { max-width: 640px; }
+}
+@media (min-width: 768px) { /* md */
+  .container { max-width: 100%; }
+}
+@media (min-width: 1024px) { /* lg */
+  .container { max-width: 100%; }
+}
+@media (min-width: 1280px) { /* xl */
+  .container { max-width: 100%; }
+}
+@media (min-width: 1536px) { /* 2xl */
+  .container { max-width: 1920px; }
+}
+
+/* Ultra-wide screens above 5120px */
+@media (min-width: 5120px) {
+  .container {
+    max-width: 2560px; /* keeps content from stretching too far */
+  }
+}
